@@ -1,0 +1,169 @@
+==============================================================================
+COPY THE SECTION BELOW INTO my-config.md
+==============================================================================
+
+---
+
+## Node002 (Designated Standby) - **Currently: Active**
+
+> **Last Updated:** 2025-12-20 22:01 NZDT on node002  
+> **Wallet Status:** Initialized
+
+### Rocket Pool
+- **Version:** 1.18.6
+- **Network:** Hoodi Test
+- **Node Address:** `0x985b1E3e49Fa0F6c5d7483100a616b84C723Bc7F`
+- **Withdrawal Address:** `0x6260D6583B82BcF4Fc2b9E094110171535a241Fe`
+- **Primary Withdrawal:** `0x6260D6583B82BcF4Fc2b9E094110171535a241Fe`
+- **Registered:** [Check: rocketpool node status]
+- **Timezone:** Pacific/Auckland
+
+### Minipools
+- **Count:** 1
+- **Status:**
+  Address:               0xf5c4243fCCc3Eb6689F4a382b2d389732406B4CA
+  Penalties:             0
+  Status updated:        2025-10-04, 14:38 +0000 UTC
+  Node fee:              5.000000%
+  Node deposit:          8.000000 ETH
+  RP ETH assigned:       2025-10-04, 02:31 +0000 UTC
+  RP deposit:            24.000000 ETH
+  Minipool Balance (EL): 0.101165 ETH
+  Your portion:          0.029085 ETH
+  Available refund:      0.000000 ETH
+  Total EL rewards:      0.029085 ETH
+
+### Client Configuration
+**Execution Client:**
+- **Client:** Nethermind
+- **Version:** 1.35.2
+- **Status:** Up 3 days
+- **Sync:** [Check: rocketpool service status]
+
+**Consensus Client:**
+- **Client:** Lighthouse
+- **Version:** v8.0.0
+- **Status:** Up 3 days
+- **Sync:** [Check: rocketpool service status]
+
+**MEV-Boost:**
+- **Enabled:** true (local)
+- **Relays:** [Check `rocketpool service config` MEV section]
+
+**Fallback Clients (HA):**
+- **Enabled:** Yes
+- **Fallback EC:** http://192.168.60.101:8545
+- **Fallback CC:** http://192.168.60.101:5052
+
+### System Environment
+- **Distribution:** Debian GNU/Linux 13 (trixie)
+- **Kernel:** 6.12.57+deb13-amd64
+- **Architecture:** x86_64
+- **Uptime:** up 3 days, 3 hours, 14 minutes
+- **Hardware:**
+  - CPU: AMD Ryzen 7 5800X 8-Core Processor
+  - RAM: 62Gi
+  - Storage: 2.9G/433G (1% used)
+- **Network:**
+  - External IP: [Check with: curl -s ifconfig.me]
+  - Firewall: [Document your rules]
+  - SSH Port: [Your custom port]
+
+---
+
+==============================================================================
+DETAILED OUTPUT FOR REFERENCE
+==============================================================================
+
+=== Full Node Status ===
+
+Your Smart Node is currently using the Hoodi Test Network.
+
+=== Account and Balances ===
+The node 0x985b1E3e49Fa0F6c5d7483100a616b84C723Bc7F has a balance of 23.992501 ETH and 0.000000 RPL.
+The node has 0.000000 ETH in its credit balance and 0.000000 ETH staked on its behalf. 0.000000 can be used to make new validators.
+The node is registered with Rocket Pool with a timezone location of Pacific/Auckland.
+
+=== Penalty Status ===
+The node does not have any penalties for cheating with an invalid fee recipient.
+
+=== Signalling on Snapshot ===
+The node does not currently have a snapshot signalling address set.
+To learn more about snapshot signalling, please visit https://docs.rocketpool.net/guides/houston/participate#setting-your-snapshot-signalling-address.
+Rocket Pool has 1 Snapshot governance proposal(s) being voted on. You have voted on 0 of those. See details using 'rocketpool network dao-proposals'.
+
+=== Onchain Voting ===
+The node doesn't have a delegate, which means it can vote directly on onchain proposals. You can have another node represent you by running `rocketpool p svd <address>`.
+The node is NOT allowed to lock RPL to create governance proposals/challenges.
+
+=== Primary Withdrawal Address ===
+The node's primary withdrawal address 0x6260D6583B82BcF4Fc2b9E094110171535a241Fe has a balance of 134.999714 ETH and 0.000000 RPL.
+
+=== RPL Withdrawal Address ===
+The node's RPL withdrawal address has not been set. All RPL rewards will be sent to the primary withdrawal address.
+
+=== Fee Distributor and Smoothing Pool ===
+The node's fee distributor 0x559bD32D9aa04b99e61E7e74BF282D93d62D5243 has a balance of 0.000000 ETH.
+The node is currently opted into the Smoothing Pool (0xA347C391bc8f740CAbA37672157c8aAcD08Ac567).
+
+=== RPL Stake ===
+NOTE: The following figures take *any pending bond reductions* into account.
+
+The node has a total stake of 4269.279812 RPL.
+This is currently 11.89% of its borrowed ETH and 35.66% of its bonded ETH.
+
+=== Minipools ===
+The node has a total of 1 active minipool(s):
+- 1 staking
+
+=== Full Service Status ===
+
+Your Smart Node is currently using the Hoodi Test Network.
+
+NAME                      IMAGE                          COMMAND                  SERVICE         CREATED      STATUS      PORTS
+rocketpool_alertmanager   prom/alertmanager:v0.26.0      "/bin/alertmanager -…"   alertmanager    3 days ago   Up 3 days   9093/tcp
+rocketpool_api            rocketpool/smartnode:v1.18.6   "/bin/sleep infinity"    api             3 days ago   Up 3 days   
+rocketpool_eth1           nethermind/nethermind:1.35.2   "sh /setup/start-ec.…"   eth1            3 days ago   Up 3 days   8551/tcp, 0.0.0.0:8545-8546->8545-8546/tcp, [::]:8545-8546->8545-8546/tcp, 0.0.0.0:30304->30304/tcp, [::]:30304->30304/tcp, 30303/tcp, 0.0.0.0:30304->30304/udp, [::]:30304->30304/udp
+rocketpool_eth2           sigp/lighthouse:v8.0.0         "sh /setup/start-bn.…"   eth2            3 days ago   Up 3 days   0.0.0.0:5052->5052/tcp, 0.0.0.0:8002->8002/udp, [::]:5052->5052/tcp, [::]:8002->8002/udp, 0.0.0.0:9002->9002/tcp, [::]:9002->9002/tcp, 0.0.0.0:9002->9002/udp, [::]:9002->9002/udp
+rocketpool_exporter       prom/node-exporter:v1.9.0      "/bin/node_exporter …"   node-exporter   3 days ago   Up 3 days   
+rocketpool_grafana        grafana/grafana:9.5.18         "/run.sh"                grafana         3 days ago   Up 3 days   3000/tcp, 0.0.0.0:3100->3100/tcp, [::]:3100->3100/tcp
+rocketpool_mev-boost      flashbots/mev-boost:1.10.1     "sh /setup/start-mev…"   mev-boost       3 days ago   Up 3 days   18550/tcp
+rocketpool_node           rocketpool/smartnode:v1.18.6   "/go/bin/rocketpool …"   node            3 days ago   Up 3 days   
+rocketpool_prometheus     prom/prometheus:v2.53.1        "/bin/prometheus --w…"   prometheus      3 days ago   Up 3 days   9090/tcp
+rocketpool_validator      sigp/lighthouse:v8.0.0         "sh /setup/start-vc.…"   validator       3 days ago   Up 3 days   
+rocketpool_watchtower     rocketpool/smartnode:v1.18.6   "/go/bin/rocketpool …"   watchtower      3 days ago   Up 3 days   
+
+=== Full Minipool Status ===
+
+1 Staking minipool(s):
+
+--------------------
+
+Address:               0xf5c4243fCCc3Eb6689F4a382b2d389732406B4CA
+Penalties:             0
+Status updated:        2025-10-04, 14:38 +0000 UTC
+Node fee:              5.000000%
+Node deposit:          8.000000 ETH
+RP ETH assigned:       2025-10-04, 02:31 +0000 UTC
+RP deposit:            24.000000 ETH
+Minipool Balance (EL): 0.101165 ETH
+Your portion:          0.029085 ETH
+Available refund:      0.000000 ETH
+Total EL rewards:      0.029085 ETH
+Validator pubkey:      0xa842b80d05f2caea3fa86be868a9c8ebcd1012f961c323b27cc46d75bbd72c6da918f78e7fa77c48c6920361d2ee20fe
+Validator index:       1234269
+Validator active:      yes
+Beacon balance (CL):   32.000869 ETH
+Your portion:          8.000250 ETH
+Use latest delegate:   no
+Delegate address:      0x56903694d881282D33ed0643EAe14263880Dd47F
+Rollback delegate:     <none>
+Effective delegate:    0x56903694d881282D33ed0643EAe14263880Dd47F
+
+
+0 finalized minipool(s) (hidden)
+
+==============================================================================
+NOTE: For detailed configuration settings, run: rocketpool service config
+      Config files location: ~/.rocketpool/
+==============================================================================
