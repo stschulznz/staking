@@ -295,8 +295,8 @@ df -h          # Disk usage
 ```
 
 ### Beaconcha.in Monitoring
+- **node001 machine name:** node01 (metrics sent to https://hoodi.beaconcha.in/api/v1/client/metrics)
 - **node002 machine name:** node02 (metrics sent to https://hoodi.beaconcha.in/api/v1/client/metrics)
-- **node001 machine name:** [What did you configure for node001?]
 - **Mobile App:** Installed for push notifications and on-the-go monitoring
 - **Validator tracking:** Beaconcha.in dashboard for attestation effectiveness and rewards
 

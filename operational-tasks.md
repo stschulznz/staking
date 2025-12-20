@@ -5,6 +5,22 @@
 
 ---
 
+## Task Overview
+
+| Task | Status | Priority | Target Date |
+|------|--------|----------|-------------|
+| Secure Grafana Access via NPM Proxy | 🟢 To Do | High | TBD |
+| Secure Uptime Kuma Access via NPM Proxy | 🟢 To Do | High | TBD |
+| Document Beaconcha.in Machine Name for node001 | ✅ Done | - | 2025-12-20 |
+| Complete Troubleshooting Commands Documentation | 🟢 To Do | Medium | - |
+| Implement Automated Backup Verification | 🟢 To Do | Low | - |
+| Centralize Log Aggregation | 🟢 To Do | Low | - |
+| Create Configuration Auto-Generation Script | ✅ Done | - | 2025-12-20 |
+| Document Encrypted USB Setup | ✅ Done | - | 2025-12-20 |
+| Update Staking Expert Agent to Use Config Files | ✅ Done | - | 2025-12-20 |
+
+---
+
 ## Task Status Legend
 - 🔴 **Blocked** - Cannot proceed due to dependency or issue
 - 🟡 **In Progress** - Currently working on this
@@ -100,21 +116,6 @@
 
 ## Medium Priority Tasks
 
-### 🟢 Document Beaconcha.in Machine Name for node001
-**Status:** To Do  
-**Priority:** Medium
-
-**Task:**
-- Currently node002 has machine name "node02" configured
-- Need to verify/document node001's machine name in operations.md
-
-**Steps:**
-1. [ ] Check `~/.rocketpool/user-settings.yml` on node001 for `bitflyMachineName`
-2. [ ] Update operations.md with the machine name
-3. [ ] Verify metrics are being sent to Beaconcha.in from node001
-
----
-
 ### 🟢 Complete Troubleshooting Commands Documentation
 **Status:** To Do  
 **Priority:** Medium
@@ -181,7 +182,17 @@
 **Status:** Done  
 **Completed:** 2025-12-20
 
+**TaskDocument Beaconcha.in Machine Name for node001
+**Status:** Done  
+**Completed:** 2025-12-20
+
 **Task:**
+- Documented node001 machine name "node01" in operations.md
+- Verified both nodes sending metrics to Beaconcha.in
+
+---
+
+### ✅ :**
 - Documented LUKS encrypted USB configuration in operations.md
 - Included boot sequence and troubleshooting
 - Noted requirement to unlock USB before services start
