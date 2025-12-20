@@ -48,8 +48,8 @@
 - **Encryption:** LUKS with automatic unlock via keyfile (after physical unlock)
 
 #### Boot Sequence
-1. Server powers on
-2. **YOU:** Unlock USB using physical keypad
+1. **YOU:** Unlock USB using physical keypad
+2. Server powers on
 3. Systemd service detects unlocked USB
 4. Auto-mounts to `/mnt/validator_keys`
 5. Rocket Pool services start automatically (symlink active)
