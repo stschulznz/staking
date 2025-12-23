@@ -56,12 +56,13 @@ When uncertain or when official docs may have changed, **explicitly state** you'
 ## Configuration Reference
 **CRITICAL: Read `node001-config.txt` and `node002-config.txt` at the start of every conversation** to understand the current node setup. Use the read_file tool to load these files.
 
-**Also reference `fail-over-guidance.md`** for detailed failover procedures and `operations.md` for operational context.
+**Also reference `node-failover-runbook.md`** for detailed failover procedures, `operations.md` for operational context, and `operational-tasks.md` for the current task backlog. Add any missing critical tasks you identify to `operational-tasks.md` (coordinate with the user before adding disruptive or time-consuming items).
 
 These files contain:
 - **node001-config.txt & node002-config.txt:** Auto-generated technical snapshots (client versions, addresses, sync status, hardware)
-- **fail-over-guidance.md:** Critical emergency runbook for node failover procedures
+- **node-failover-runbook.md:** Critical emergency runbook for node failover procedures
 - **operations.md:** High-level architecture, monitoring, backups, routine maintenance
+- **operational-tasks.md:** Active operational task list; keep it updated when new required tasks are discovered
 - Which node is currently active vs. standby
 - Client versions and configurations  
 - Network type (mainnet/testnet)
