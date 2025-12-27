@@ -20,6 +20,46 @@
 - Smartnode/client update check: watch Rocket Pool releases; if upgrading, do staged rollout (standby first, then active) during a window.
 - Metrics/alerts: confirm Grafana reachable (default 3100) and Alertmanager webhooks still valid.
 
+## Standard Update Procedures
+
+### OS Updates (per node)
+```bash
+# Refresh package metadata and apply updates
+sudo apt update
+sudo apt dist-upgrade
+sudo apt autoremove
+
+# Reboot check: no output file means no reboot needed
+cat /var/run/reboot-required
+```
+
+### Smartnode Updates
+```bash
+# Capture current version
+rocketpool service version
+
+# Stop services before upgrading
+rocketpool service stop
+
+# Download latest CLI binary
+sudo wget https://github.com/rocket-pool/smartnode/releases/latest/download/rocketpool-cli-linux-amd64 -O ~/bin/rocketpool
+
+# Reinstall services with new binary
+rocketpool service install -d
+
+# Optional: review config changes via TUI
+rocketpool service config
+
+# Restart stack and verify
+rocketpool service start
+rocketpool service version
+```
+
+### Post-Upgrade Status Fix (when `rocketpool node status` shows package cache issues)
+```bash
+sudo apt update
+```
+
 ## Monthly
 - Standby readiness (node001): `rocketpool node sync` on node001; ensure EC/CC fully synced and within 8 blocks of explorer.
 - Failover drill (maintenance window): execute node01 → node02 → node01 per runbook; target <1% missed attestations over 24h.

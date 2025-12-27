@@ -1,12 +1,6 @@
-==============================================================================
-COPY THE SECTION BELOW INTO my-config.md
-==============================================================================
-
----
-
 ## Node002 (Designated Standby) - **Currently: Active**
 
-> **Last Updated:** 2025-12-20 22:01 NZDT on node002  
+> **Last Updated:** 2025-12-27 14:57 NZDT on node002  
 > **Wallet Status:** Initialized
 
 ### Rocket Pool
@@ -28,22 +22,22 @@ COPY THE SECTION BELOW INTO my-config.md
   Node deposit:          8.000000 ETH
   RP ETH assigned:       2025-10-04, 02:31 +0000 UTC
   RP deposit:            24.000000 ETH
-  Minipool Balance (EL): 0.101165 ETH
-  Your portion:          0.029085 ETH
+  Minipool Balance (EL): 0.110404 ETH
+  Your portion:          0.031741 ETH
   Available refund:      0.000000 ETH
-  Total EL rewards:      0.029085 ETH
+  Total EL rewards:      0.031741 ETH
 
 ### Client Configuration
 **Execution Client:**
 - **Client:** Nethermind
 - **Version:** 1.35.2
-- **Status:** Up 3 days
+- **Status:** Up 5 days
 - **Sync:** [Check: rocketpool service status]
 
 **Consensus Client:**
 - **Client:** Lighthouse
 - **Version:** v8.0.0
-- **Status:** Up 3 days
+- **Status:** Up 5 days
 - **Sync:** [Check: rocketpool service status]
 
 **MEV-Boost:**
@@ -59,11 +53,11 @@ COPY THE SECTION BELOW INTO my-config.md
 - **Distribution:** Debian GNU/Linux 13 (trixie)
 - **Kernel:** 6.12.57+deb13-amd64
 - **Architecture:** x86_64
-- **Uptime:** up 3 days, 3 hours, 14 minutes
+- **Uptime:** up 1 week, 2 days, 20 hours, 10 minutes
 - **Hardware:**
   - CPU: AMD Ryzen 7 5800X 8-Core Processor
   - RAM: 62Gi
-  - Storage: 2.9G/433G (1% used)
+  - Storage: 2.8G/433G (1% used)
 - **Network:**
   - External IP: [Check with: curl -s ifconfig.me]
   - Firewall: [Document your rules]
@@ -110,7 +104,7 @@ The node is currently opted into the Smoothing Pool (0xA347C391bc8f740CAbA376721
 NOTE: The following figures take *any pending bond reductions* into account.
 
 The node has a total stake of 4269.279812 RPL.
-This is currently 11.89% of its borrowed ETH and 35.66% of its bonded ETH.
+This is currently 11.91% of its borrowed ETH and 35.72% of its bonded ETH.
 
 === Minipools ===
 The node has a total of 1 active minipool(s):
@@ -121,17 +115,17 @@ The node has a total of 1 active minipool(s):
 Your Smart Node is currently using the Hoodi Test Network.
 
 NAME                      IMAGE                          COMMAND                  SERVICE         CREATED      STATUS      PORTS
-rocketpool_alertmanager   prom/alertmanager:v0.26.0      "/bin/alertmanager -…"   alertmanager    3 days ago   Up 3 days   9093/tcp
-rocketpool_api            rocketpool/smartnode:v1.18.6   "/bin/sleep infinity"    api             3 days ago   Up 3 days   
-rocketpool_eth1           nethermind/nethermind:1.35.2   "sh /setup/start-ec.…"   eth1            3 days ago   Up 3 days   8551/tcp, 0.0.0.0:8545-8546->8545-8546/tcp, [::]:8545-8546->8545-8546/tcp, 0.0.0.0:30304->30304/tcp, [::]:30304->30304/tcp, 30303/tcp, 0.0.0.0:30304->30304/udp, [::]:30304->30304/udp
-rocketpool_eth2           sigp/lighthouse:v8.0.0         "sh /setup/start-bn.…"   eth2            3 days ago   Up 3 days   0.0.0.0:5052->5052/tcp, 0.0.0.0:8002->8002/udp, [::]:5052->5052/tcp, [::]:8002->8002/udp, 0.0.0.0:9002->9002/tcp, [::]:9002->9002/tcp, 0.0.0.0:9002->9002/udp, [::]:9002->9002/udp
-rocketpool_exporter       prom/node-exporter:v1.9.0      "/bin/node_exporter …"   node-exporter   3 days ago   Up 3 days   
-rocketpool_grafana        grafana/grafana:9.5.18         "/run.sh"                grafana         3 days ago   Up 3 days   3000/tcp, 0.0.0.0:3100->3100/tcp, [::]:3100->3100/tcp
-rocketpool_mev-boost      flashbots/mev-boost:1.10.1     "sh /setup/start-mev…"   mev-boost       3 days ago   Up 3 days   18550/tcp
-rocketpool_node           rocketpool/smartnode:v1.18.6   "/go/bin/rocketpool …"   node            3 days ago   Up 3 days   
-rocketpool_prometheus     prom/prometheus:v2.53.1        "/bin/prometheus --w…"   prometheus      3 days ago   Up 3 days   9090/tcp
-rocketpool_validator      sigp/lighthouse:v8.0.0         "sh /setup/start-vc.…"   validator       3 days ago   Up 3 days   
-rocketpool_watchtower     rocketpool/smartnode:v1.18.6   "/go/bin/rocketpool …"   watchtower      3 days ago   Up 3 days   
+rocketpool_alertmanager   prom/alertmanager:v0.26.0      "/bin/alertmanager -…"   alertmanager    9 days ago   Up 5 days   9093/tcp
+rocketpool_api            rocketpool/smartnode:v1.18.6   "/bin/sleep infinity"    api             9 days ago   Up 5 days   
+rocketpool_eth1           nethermind/nethermind:1.35.2   "sh /setup/start-ec.…"   eth1            9 days ago   Up 5 days   8551/tcp, 0.0.0.0:8545-8546->8545-8546/tcp, [::]:8545-8546->8545-8546/tcp, 0.0.0.0:30304->30304/tcp, [::]:30304->30304/tcp, 30303/tcp, 0.0.0.0:30304->30304/udp, [::]:30304->30304/udp
+rocketpool_eth2           sigp/lighthouse:v8.0.0         "sh /setup/start-bn.…"   eth2            9 days ago   Up 5 days   0.0.0.0:5052->5052/tcp, 0.0.0.0:8002->8002/udp, [::]:5052->5052/tcp, [::]:8002->8002/udp, 0.0.0.0:9002->9002/tcp, [::]:9002->9002/tcp, 0.0.0.0:9002->9002/udp, [::]:9002->9002/udp
+rocketpool_exporter       prom/node-exporter:v1.9.0      "/bin/node_exporter …"   node-exporter   9 days ago   Up 5 days   
+rocketpool_grafana        grafana/grafana:9.5.18         "/run.sh"                grafana         9 days ago   Up 5 days   3000/tcp, 0.0.0.0:3100->3100/tcp, [::]:3100->3100/tcp
+rocketpool_mev-boost      flashbots/mev-boost:1.10.1     "sh /setup/start-mev…"   mev-boost       9 days ago   Up 5 days   18550/tcp
+rocketpool_node           rocketpool/smartnode:v1.18.6   "/go/bin/rocketpool …"   node            5 days ago   Up 5 days   
+rocketpool_prometheus     prom/prometheus:v2.53.1        "/bin/prometheus --w…"   prometheus      9 days ago   Up 5 days   9090/tcp
+rocketpool_validator      sigp/lighthouse:v8.0.0         "sh /setup/start-vc.…"   validator       5 days ago   Up 5 days   
+rocketpool_watchtower     rocketpool/smartnode:v1.18.6   "/go/bin/rocketpool …"   watchtower      5 days ago   Up 5 days   
 
 === Full Minipool Status ===
 
@@ -146,15 +140,15 @@ Node fee:              5.000000%
 Node deposit:          8.000000 ETH
 RP ETH assigned:       2025-10-04, 02:31 +0000 UTC
 RP deposit:            24.000000 ETH
-Minipool Balance (EL): 0.101165 ETH
-Your portion:          0.029085 ETH
+Minipool Balance (EL): 0.110404 ETH
+Your portion:          0.031741 ETH
 Available refund:      0.000000 ETH
-Total EL rewards:      0.029085 ETH
+Total EL rewards:      0.031741 ETH
 Validator pubkey:      0xa842b80d05f2caea3fa86be868a9c8ebcd1012f961c323b27cc46d75bbd72c6da918f78e7fa77c48c6920361d2ee20fe
 Validator index:       1234269
 Validator active:      yes
-Beacon balance (CL):   32.000869 ETH
-Your portion:          8.000250 ETH
+Beacon balance (CL):   32.002077 ETH
+Your portion:          8.000597 ETH
 Use latest delegate:   no
 Delegate address:      0x56903694d881282D33ed0643EAe14263880Dd47F
 Rollback delegate:     <none>

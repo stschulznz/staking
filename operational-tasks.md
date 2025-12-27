@@ -246,3 +246,4 @@
 - Move completed tasks to the "Completed Tasks" section
 - Archive old completed tasks periodically (quarterly?)
 - Link to this file from operations.md for visibility
+
