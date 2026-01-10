@@ -29,7 +29,8 @@ _Last reviewed: 2026-01-10_
 6. **Handle remaining Hoodi rewards**
    - If you want archival copies of testnet rewards before wiping data, run `rocketpool node claim-rewards` to sweep any Hoodi RPL/SP earnings to the node withdrawal address, then `rocketpool node distribute-fees` to flush fee-distributor balances. These tokens remain testnet-only and cannot be bridged to mainnet, but claiming them now preserves a record before you delete the Hoodi data directory.
 
-## 3. Hoodi Wind-Down (node002 while it remains active)
+## 3. Hoodi Wind-Down
+> Applies to whichever node is currently validating (node001 in today’s topology).
 1. **Exit Hoodi minipool** (docs §Automatic Migration Step 1)
    ```bash
    rocketpool minipool exit
@@ -122,9 +123,12 @@ _Last reviewed: 2026-01-10_
    - Ensure `Enable MEV-Boost` stays checked, pick sanctioned vs. unsanctioned relay profiles per policy, and leave mode on Locally Managed unless you run your own mev-boost instance.
    - Verify logs show successful relay registration (e.g., `POST /eth/v1/builder/validators 200`); resolve errors before proceeding.
 7. **Fund wallet**
-   - Use the Tangem mobile app to send ETH from the hardware wallet to the node wallet address (record both tx hash and amount in [mainnet-reference.md](mainnet-reference.md)). This step happens outside the node; no GUI is required on Fedora.
-   - Keep ≥2 ETH on the node wallet for gas/distributor operations. RPL transfers remain optional; only send if you later decide to stake for commission boosts or governance.
+   - Use the Tangem mobile app to send ETH from the hardware wallet to the single node wallet address (record both tx hash and amount in [mainnet-reference.md](mainnet-reference.md)). All validators on the node share that same wallet.
+   - You can send each minipool’s bond plus its gas buffer in one transfer (e.g., 9 ETH total for every 8 ETH LEB you plan to create). After one minipool is live, repeat with another 9 ETH transfer for the next deposit.
+   - Always retain an additional ≈2 ETH buffer on the node wallet for routine gas / fee-distributor operations even after all planned validators have been funded (e.g., 7 minipools → 7×8 ETH bond + ≥7 ETH buffer + ≥2 ETH reserve).
    - Verify deposits with `rocketpool node status`.
+
+   **Tangem + WalletConnect workflow:** whenever Rocket Pool prints a WalletConnect QR (e.g., during future on-chain actions), open the Tangem app on your Samsung S23, choose WalletConnect, scan the terminal’s QR code, and tap the card to approve. No other wallet software or desktop GUI is required.
 8. **Register node and set timezone**
    ```bash
    rocketpool node register
@@ -135,9 +139,10 @@ _Last reviewed: 2026-01-10_
    - Mirror on node001 for symmetrical failover and document the new primary/standby relationship.
 10. **Create new minipools**
    ```bash
-   rocketpool minipool create --bond <8-or-16> --count 1
+   # deploy one LEB8 at a time, confirm sync, then repeat
+   rocketpool minipool create --bond 8 --count 1
    ```
-   - Select `--bond 8` for LEB8 validators or `--bond 16` for legacy 16-ETH minipools based on the staking analysis below; repeat after verifying collateral ratios.
+   - The agreed plan is to run 7 LEB8 validators total; reuse the same command each time and verify the collateral ratio / wallet balance between deposits.
 
 ## 8. Saturn 0 Considerations (ETH-only minipools)
 - [Saturn 0](https://docs.rocketpool.net/guides/saturn-0/whats-new) removes the mandatory RPL stake for new minipools; you can deploy purely with ETH bonds. This matches the “no additional token” preference.
