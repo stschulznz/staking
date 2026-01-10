@@ -50,7 +50,7 @@
 
 ### Phase 3: Critical waiting period (monitor from either host)
 - Duration: minimum 15 minutes **and** after one missed attestation per validator is finalized (per Rocket Pool migration guidance).
-- Use the validator pubkeys captured from the active node's latest `node001-config.txt` and `node002-config.txt` (generated in Phase 1) to open each validator page on https://hoodi.beaconcha.in/ (e.g., paste pubkey or index into https://hoodi.beaconcha.in/validator/123456) and ensure a missed/late attestation exists in a **finalized** epoch.
+- Use the validator pubkeys captured from the active node's latest `node001-config.txt` and `node002-config.txt` (generated in Phase 1) to open each validator page on https://hoodi.beaconcha.in/ (e.g., paste pubkey or index into https://hoodi.beaconcha.in/validator/INDEX) and ensure a missed/late attestation exists in a **finalized** epoch.
 - Optional safety: wait for 2 missed & finalized attestations.
 
 ### Phase 4: Activate node002 (standby becomes active)

@@ -137,6 +137,21 @@ UPTIME=$(uptime -p 2>/dev/null || echo "Unknown")
 CPU_INFO=$(lscpu 2>/dev/null | grep "Model name:" | sed 's/Model name: *//' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' || echo "[Run lscpu to see]")
 RAM_TOTAL=$(free -h 2>/dev/null | awk '/^Mem:/ {print $2}' || echo "[Not found]")
 DISK_USAGE=$(df -h / 2>/dev/null | awk 'NR==2 {print $3 "/" $2 " (" $5 " used)"}' || echo "[Not found]")
+if command -v lsblk >/dev/null 2>&1; then
+    DISK_LAYOUT=$(lsblk -f 2>/dev/null)
+else
+    DISK_LAYOUT="[lsblk not available]"
+fi
+if command -v vgs >/dev/null 2>&1; then
+    VG_SUMMARY=$(vgs --noheadings -o vg_name,vg_size,vg_free 2>/dev/null | sed 's/^/  /' | sed '/^$/d')
+else
+    VG_SUMMARY="  [Install lvm2 to capture VG info]"
+fi
+if command -v lvs >/dev/null 2>&1; then
+    LV_SUMMARY=$(lvs --noheadings -o lv_name,vg_name,lv_size,origin,data_percent,metadata_percent 2>/dev/null | sed 's/^/  /' | sed '/^$/d')
+else
+    LV_SUMMARY="  [Install lvm2 to capture LV info]"
+fi
 
 # Generate output and save to file
 {
@@ -211,6 +226,17 @@ fi)
   - Firewall: [Document your rules]
   - SSH Port: [Your custom port]
 
+### Storage Layout
+```
+$DISK_LAYOUT
+```
+
+**Volume Groups:**
+$VG_SUMMARY
+
+**Logical Volumes:**
+$LV_SUMMARY
+
 ---
 
 ==============================================================================
@@ -225,6 +251,15 @@ $SERVICE_STATUS
 
 === Full Minipool Status ===
 $MINIPOOL_STATUS
+
+=== Disk & LVM Overview ===
+$DISK_LAYOUT
+
+VGs:
+$VG_SUMMARY
+
+LVs:
+$LV_SUMMARY
 
 ==============================================================================
 NOTE: For detailed configuration settings, run: rocketpool service config
