@@ -1,8 +1,8 @@
 # Mainnet Reference
 
 ## Tangem Wallet Inventory
-- Card Set Distribution: [[TODO]]
-- Primary Ethereum Address (EIP-55): [[TODO]]
+- Card Set Distribution: [Card Grey - Primary, Card Red - Safe, Card Yellow - Travel]
+- Primary Ethereum Address (EIP-55): [0x803b07DE402Ad93BB4315C0B4D38195e56bf8E7d]
 - Verification Notes: [[TODO]]
 - Backup Notes: [[TODO]]
 
@@ -16,7 +16,7 @@
 - Password File Strategy: [[TODO]]
 
 ## Withdrawal / Fee Distributor Settings
-- Primary Withdrawal Address: [[TODO]]
+- Primary Withdrawal Address: [0x803b07DE402Ad93BB4315C0B4D38195e56bf8E7d]
 - Fee Distributor Address: [[TODO]]
 - RPL Withdrawal Address: [[TODO]]
 - Transaction References: [[TODO]]
@@ -38,11 +38,26 @@
 - Backup Media Locations: [[TODO]]
 
 ## Network & RPC References
-- Public IP (node001): [[TODO]]
-- Public IP (node002): [[TODO]]
-- LAN Subnet: [[TODO]]
-- Firewall / Port Notes: [[TODO]]
+- Public IP (shared): `158.140.242.211`
+- LAN IP (node001): `192.168.60.101`
+- LAN IP (node002): `192.168.60.102`
+- LAN Subnet: `192.168.60.0/24`
 - MEV-Boost Relay Profiles: [[TODO]]
+
+### Firewall / NAT Port Forwarding Rules
+**External IP:** `158.140.242.211`
+
+**Node001 (192.168.60.101)** - Reth + Lighthouse:
+- `TCP 9001` → `192.168.60.101:9001` (Execution client P2P - Reth)
+- `TCP/UDP 30303` → `192.168.60.101:30303` (Execution client P2P - standard Ethereum)
+- `UDP 8001` → `192.168.60.101:8001` (Consensus client discovery - Lighthouse)
+
+**Node002 (192.168.60.102)** - Nethermind + Lighthouse:
+- `TCP 9002` → `192.168.60.102:9002` (Execution client P2P - Nethermind)
+- `TCP/UDP 30304` → `192.168.60.102:30304` (Execution client P2P)
+- `UDP 8002` → `192.168.60.102:8002` (Consensus client discovery - Lighthouse)
+
+**Note:** These port mappings are **network-agnostic** (work for both Hoodi testnet and Ethereum mainnet). No changes required during migration - the P2P protocols use the same ports regardless of network.
 
 ## Migration Transaction Log
 - Wallet Init (node001): [[TODO date / tx hash]]

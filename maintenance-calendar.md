@@ -3,7 +3,7 @@
 Use this to schedule routine work. Keep windows short; prefer standby-first, then active. Times in local + UTC.
 
 ## Recurring
-- Weekly (Active node = node002 now):
+- Weekly (Active node = check node00{1,2}-config.txt):
   - OS security updates, reboot if required.
   - Smartnode/client release check.
   - Logs spot check (validator, EC/CC) and `rocketpool node sync`.

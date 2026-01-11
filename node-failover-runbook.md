@@ -1,12 +1,12 @@
 # Rocket Pool Node Failover Runbook
 
-> Primary: node001 (currently standby)
-> Standby: node002 (currently active)
+> Designated Primary: node001 (check [node001-config.txt](node001-config.txt) for Current role)
+> Designated Standby: node002 (check [node002-config.txt](node002-config.txt) for Current role)
 > Network: Hoodi Test
 > Clients: node001 Reth + Lighthouse, node002 Nethermind + Lighthouse
 
 ## Prerequisites (both nodes)
-- Smartnode versions match (currently 1.18.6); plan upgrades during maintenance windows and confirm with `rocketpool service version` on both nodes.
+- Smartnode versions match (confirm with `rocketpool service version` on both nodes and record in [node001-config.txt](node001-config.txt) / [node002-config.txt](node002-config.txt)).
 - Execution and consensus clients fully synced; fallback RPCs reachable (fallback nodes must **never** have validator keys loaded).
 - Beacon block height on standby within 8 blocks of explorer.
 - Validator indexes recorded and accessible.

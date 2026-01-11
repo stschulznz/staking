@@ -1,7 +1,7 @@
 # Rocket Pool Operational Tasks
 
 > **Purpose:** Track operational improvements, pending tasks, and infrastructure changes  
-> **Last Updated:** 2025-12-20
+> **Last Updated:** 2026-01-11
 
 ---
 
@@ -11,6 +11,7 @@
 |------|--------|----------|-------------|
 | Secure Grafana Access via NPM Proxy | 🟢 To Do | High | TBD |
 | Secure Uptime Kuma Access via NPM Proxy | 🟢 To Do | High | TBD |
+| Post-migration docs & config refresh | 🟢 To Do | Medium | After mainnet cutover |
 | Document Beaconcha.in Machine Name for node001 | ✅ Done | - | 2025-12-20 |
 | Complete Troubleshooting Commands Documentation | 🟢 To Do | Medium | - |
 | Implement Automated Backup Verification | 🟢 To Do | Low | - |
@@ -116,6 +117,23 @@
 
 ## Medium Priority Tasks
 
+### 🟢 Post-migration docs & config refresh
+**Status:** To Do  
+**Priority:** Medium  
+**Target Date:** After mainnet cutover
+
+**Goal:** Ensure all runbooks reflect the new mainnet steady state.
+
+**Steps:**
+1. [ ] Run `scripts/update-config.sh` on node001 and node002 and refresh [node001-config.txt](node001-config.txt) / [node002-config.txt](node002-config.txt).
+2. [ ] Update [operations.md](operations.md) “Current status” line and remove Hoodi-only reminders.
+3. [ ] Update [mainnet-reference.md](mainnet-reference.md) with mainnet validator indices once minipools are created.
+
+**Notes:**
+- Documentation-only; no validator-impacting changes.
+
+---
+
 ### 🟢 Complete Troubleshooting Commands Documentation
 **Status:** To Do  
 **Priority:** Medium
@@ -178,11 +196,7 @@
 
 ---
 
-### ✅ Document Encrypted USB Setup
-**Status:** Done  
-**Completed:** 2025-12-20
-
-**TaskDocument Beaconcha.in Machine Name for node001
+### ✅ Document Beaconcha.in Machine Name for node001
 **Status:** Done  
 **Completed:** 2025-12-20
 
@@ -192,8 +206,12 @@
 
 ---
 
-### ✅ :**
-- Documented LUKS encrypted USB configuration in operations.md
+### ✅ Document Encrypted USB Setup
+**Status:** Done  
+**Completed:** 2025-12-20
+
+**Task:**
+- Documented LUKS encrypted USB configuration
 - Included boot sequence and troubleshooting
 - Noted requirement to unlock USB before services start
 
