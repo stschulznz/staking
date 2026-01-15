@@ -7,18 +7,18 @@
 - Backup Notes: [[TODO]]
 
 ## Rocket Pool Node Wallets
-| Node | Wallet Alias | Creation Date | Storage Notes |
+| Node | Wallet Address | Creation Date | Storage Notes |
 | --- | --- | --- | --- |
-| node001 | [[TODO]] | [[TODO]] | [[TODO]] |
-| node002 | [[TODO]] | [[TODO]] | [[TODO]] |
+| node001 | `0x0A77C4B4EE9Ab193514b9d8bEe25d7eF09f4917F` | 2026-01-15 | LUKS USB `/mnt/validator_keys/data` |
+| node002 | (standby - no wallet) | — | Will initialize on failover only |
 
 - Mnemonic Storage Location: [[TODO]]
 - Password File Strategy: [[TODO]]
 
 ## Withdrawal / Fee Distributor Settings
-- Primary Withdrawal Address: [0x803b07DE402Ad93BB4315C0B4D38195e56bf8E7d]
-- Fee Distributor Address: [[TODO]]
-- RPL Withdrawal Address: [[TODO]]
+- Primary Withdrawal Address: `0x803b07DE402Ad93BB4315C0B4D38195e56bf8E7d` (confirmed 2026-01-15)
+- Fee Distributor Address: `0x5d5BD99F6A078E796a95e0266b6333cbb3bC67C0`
+- RPL Withdrawal Address: (not set - defaults to primary)
 - Transaction References: [[TODO]]
 
 ## Execution & Consensus Clients

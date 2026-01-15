@@ -121,6 +121,22 @@ sudo apt update
 - Alerting: configure Discord webhook in Monitoring/Alerting TUI; include rules for smoothing pool opt-out, mev-boost relay failures, and wallet balance <1.5 ETH.
 - Third-party: beaconcha.in dashboard for validator indices; optional mobile push.
 - Doppelganger safety: Lighthouse defaults to doppelganger protection **on**—keep it enabled on the node you bring online; ensure the other node stays powered off with keys purged.
+- **NVMe temperature:** Alert on hottest sensor: `max(node_hwmon_temp_celsius{chip="nvme_nvme0"})`. Warn at 70°C, critical at 75°C. Thermal throttling begins around 70–75°C and causes sync/performance degradation.
+
+## UPS / Power Protection (node001)
+- **Hardware:** Eaton 5E 2200 AU G2 connected via USB
+- **Software:** NUT (Network UPS Tools) with `usbhid-ups` driver
+- **Shutdown trigger:** Battery charge drops to 20% (~14 min at light load)
+- **Shutdown script:** `/usr/local/bin/nut-shutdown.sh` stops Rocket Pool gracefully before system poweroff
+- **Check UPS status:**
+  ```bash
+  upsc eaton@localhost ups.status      # OL = online, OB = on battery
+  upsc eaton@localhost battery.charge  # percentage
+  upsc eaton@localhost battery.runtime # seconds remaining
+  ```
+- **Services:** `nut-server`, `nut-monitor`, `nut-driver-enumerator` (all enabled at boot)
+- **Config files:** `/etc/nut/ups.conf`, `/etc/nut/upsd.conf`, `/etc/nut/upsd.users`, `/etc/nut/upsmon.conf`
+- **Udev rule:** `/etc/udev/rules.d/99-nut-ups.rules` (grants NUT access to USB device)
 
 ## Security
 - SSH: keys only; keep custom port and firewall rules documented; limit Grafana/Prometheus exposure.

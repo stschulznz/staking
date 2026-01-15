@@ -126,6 +126,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable validator-keys-unlock.service
 sudo systemctl enable mnt-validator_keys.mount
 
+# Start immediately (recommended) so you can confirm behavior without waiting for a reboot
 sudo systemctl start validator-keys-unlock.service
 sudo systemctl start mnt-validator_keys.mount
 ls /mnt/validator_keys
@@ -177,3 +178,104 @@ rocketpool service status
 - If the mount unit fails at boot, check `journalctl -u validator-keys-unlock.service -b` for cryptsetup errors (often incorrect UUID or missing keyfile permissions).
 - Use `lsblk -f` to confirm the USB partition name if the device path changes.
 - Keep an offline backup of the mnemonic/password; never store it on the USB drive.
+
+### Common failure mode: unlocked but not mounted
+
+If `cryptsetup status validator_keys` shows the mapper is active (e.g., `/dev/mapper/validator_keys` exists) but `/mnt/validator_keys` is empty and `mount | grep validator_keys` shows nothing, then the unlock succeeded but the mount unit did not run.
+
+Run:
+
+```bash
+sudo systemctl status mnt-validator_keys.mount --no-pager
+sudo systemctl start mnt-validator_keys.mount
+mount | egrep -i '/mnt/validator_keys|validator_keys'
+df -hT /mnt/validator_keys
+ls -la /mnt/validator_keys
+```
+
+If starting the mount unit fails, inspect:
+
+```bash
+sudo journalctl -u mnt-validator_keys.mount -b --no-pager | tail -n 200
+```
+
+### Booted without the USB unlocked/available
+
+If you boot the node with the USB drive missing or locked (hardware PIN not entered yet), systemd may not mount `/mnt/validator_keys` during that boot.
+
+Recovery (once the drive is inserted/unlocked):
+
+```bash
+sudo systemctl restart validator-keys-unlock.service
+sudo systemctl start mnt-validator_keys.mount
+
+mount | egrep -i '/mnt/validator_keys|validator_keys'
+df -hT /mnt/validator_keys
+ls -la /mnt/validator_keys
+```
+
+If the mount unit is in a failed state, clear it before restarting:
+
+```bash
+sudo systemctl reset-failed mnt-validator_keys.mount
+```
+
+#### Optional hardening: enable automount
+
+If you occasionally forget to unlock the USB before boot, a systemd automount can make the system mount the drive the first time `/mnt/validator_keys` is accessed (after the unlock service has succeeded).
+
+Create `/etc/systemd/system/mnt-validator_keys.automount`:
+
+```ini
+[Unit]
+Description=Automount Validator Keys
+
+[Automount]
+Where=/mnt/validator_keys
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=graphical.target
+```
+
+Note: avoid `Requires=validator-keys-unlock.service` here. If the USB is missing/locked at boot, the unlock service may not start and systemd will refuse to start the automount. The `.mount` unit already requires the unlock service, so the mount will still be gated correctly.
+
+Enable it (does not disrupt an already-mounted filesystem):
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable mnt-validator_keys.automount
+```
+
+Important: systemd will refuse to start an automount on a path that is already mounted. To switch from the boot-time mount to automount (recommended), stop the mount unit, unmount, then start the automount:
+
+```bash
+# Ensure Rocket Pool isn't using the USB-backed data dir before unmounting
+sudo systemctl stop mnt-validator_keys.mount || true
+sudo umount /mnt/validator_keys || true
+
+sudo systemctl start mnt-validator_keys.automount
+
+# Trigger the mount by accessing the path
+ls -la /mnt/validator_keys
+findmnt /mnt/validator_keys -o TARGET,SOURCE,FSTYPE,OPTIONS
+```
+
+Once the automount is working, disable the boot-time mount unit so the node can boot even if you forget to unlock the USB:
+
+```bash
+sudo systemctl disable mnt-validator_keys.mount
+```
+
+After a reboot, verify:
+
+```bash
+sudo systemctl status validator-keys-unlock.service --no-pager
+sudo systemctl status mnt-validator_keys.automount --no-pager
+
+# This access should trigger the mount
+ls -la /mnt/validator_keys
+findmnt /mnt/validator_keys -o TARGET,SOURCE,FSTYPE,OPTIONS
+```
+
+If your system is headless and uses `multi-user.target` only, `WantedBy=graphical.target` is optional. Keeping both is harmless and covers desktops (where `systemctl get-default` may be `graphical.target`).

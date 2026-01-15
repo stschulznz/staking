@@ -208,14 +208,14 @@ _Last reviewed: 2026-01-10_
    - Send ETH to the *node wallet address* (shown by `rocketpool wallet status`).
    - Purpose: pay gas for setup tx and fund minipool bond(s) (e.g., 8 ETH per LEB8 deposit plus variable gas).
    - Operational target: keep a long-lived gas buffer (your baseline in [operations.md](operations.md) is ≥2 ETH).
-6. **Register node (timezone is non-sensitive)**
+7. **Register node (timezone is non-sensitive)**
    ```bash
    rocketpool node register
    rocketpool node set-timezone Etc/UTC
    ```
    - Purpose: register the node on-chain and set a timezone for the public node map (docs note you can use a generic timezone for privacy).
    - Note: registration must happen before setting withdrawal addresses.
-7. **Set withdrawal addresses to Tangem + confirm** ([docs](https://docs.rocketpool.net/guides/node/prepare-node))
+8. **Set withdrawal addresses to Tangem + confirm** ([docs](https://docs.rocketpool.net/guides/node/prepare-node))
    
    **Part A: Set pending address (on node via SSH):**
    ```bash
@@ -242,27 +242,27 @@ _Last reviewed: 2026-01-10_
    ```
    - The confirmation transaction originates from your Tangem address (proving you control it), not the node wallet.
    - Purpose: ensure Beacon Chain withdrawals and protocol rewards go to your cold wallet, not the hot node wallet.
-8. **Initialize fee distributor & join smoothing pool** ([docs](https://docs.rocketpool.net/guides/node/fee-distrib-sp))
+9. **Initialize fee distributor & join smoothing pool** ([docs](https://docs.rocketpool.net/guides/node/fee-distrib-sp))
    ```bash
    rocketpool node initialize-fee-distributor
    rocketpool node join-smoothing-pool
    ```
    - Purpose: enable correct EL reward routing/splitting and qualify new minipools for Saturn 0’s dynamic commission boost (requires smoothing pool opt-in).
-9. **Enable MEV-Boost relays + verify** ([docs](https://docs.rocketpool.net/guides/node/mev))
+10. **Enable MEV-Boost relays + verify** ([docs](https://docs.rocketpool.net/guides/node/mev))
    ```bash
    rocketpool service config  # MEV-Boost section
    rocketpool service logs mev-boost --tail 50
    ```
    - Purpose: share MEV/priority fees correctly with rETH stakers and improve returns.
    - Success: logs show relay checks and `POST /eth/v1/builder/validators 200` once validators exist.
-10. **Create new minipools (repeat to reach 7× LEB8)**
+11. **Create new minipools (repeat to reach 7× LEB8)**
    ```bash
    rocketpool node deposit
    ```
    - Purpose: deploy a new minipool contract and create a new validator.
    - Success: CLI prints minipool address + validator pubkey; then `rocketpool minipool status` progresses from `initialized` → `prelaunch` → `staking`.
 
-11. **Final mainnet backup (after all minipools created)**
+12. **Final mainnet backup (after all minipools created)**
    ```bash
    # Mount Corsair Padlock 3
    sudo mount /dev/sdb1 /mnt/backup-usb
@@ -289,10 +289,10 @@ _Last reviewed: 2026-01-10_
    - **CRITICAL:** This backup contains all keys needed to recover your validators. Store securely.
 
 ### 7C. Node002 only (standby / fallback host)
-11. **Keep node002 “no-wallet / no-keys”**
+13. **Keep node002 "no-wallet / no-keys"**
    - Purpose: reduce hot-key exposure; node002’s job is to be fully synced and ready to take over when you intentionally perform failover.
    - Do not run `rocketpool wallet init` or `rocketpool wallet recover` on node002 unless you are actively executing a controlled failover per [node-failover-runbook.md](node-failover-runbook.md).
-12. **Recreate HA fallback links**
+14. **Recreate HA fallback links**
    - Configure fallback clients so each node can use the other node’s EC/CC endpoints.
    - Purpose: client resilience during pruning/resync or transient failures.
 
