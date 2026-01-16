@@ -22,12 +22,14 @@
 - Transaction References: [[TODO]]
 
 ## Execution & Consensus Clients
-| Node | Execution | Version Target | Consensus | Version Target | Checkpoint URL |
+| Node | Execution | Version | Consensus | Version | Checkpoint URL |
 | --- | --- | --- | --- | --- | --- |
-| node001 | [[TODO]] | [[TODO]] | [[TODO]] | [[TODO]] | [[TODO]] |
-| node002 | [[TODO]] | [[TODO]] | [[TODO]] | [[TODO]] | [[TODO]] |
+| node001 | Reth | v1.9.2 | Lighthouse | v8.0.1 | `https://beaconstate.ethstaker.cc` |
+| node002 | Nethermind | 1.35.8 | Lighthouse | v8.0.1 | `https://beaconstate.ethstaker.cc` |
 
-- Fallback EC/CC Endpoints: [[TODO]]
+- Fallback EC/CC Endpoints:
+  - node001 fallback → node002: `http://192.168.60.102:8545` (EC), `http://192.168.60.102:5052` (CC)
+  - node002 fallback → node001: `http://192.168.60.101:8545` (EC), `http://192.168.60.101:5052` (CC)
 
 ## Storage & Encryption
 - LUKS Device UUID: [[TODO]]
@@ -42,7 +44,10 @@
 - LAN IP (node001): `192.168.60.101`
 - LAN IP (node002): `192.168.60.102`
 - LAN Subnet: `192.168.60.0/24`
-- MEV-Boost Relay Profiles: [[TODO]]
+- MEV-Boost Relay Profiles:
+  - Ultrasound.money (0xa1559ace...)
+  - Aestus.live (0xa15b5257...)
+  - Titan Relay (0x8c4ed5e2...)
 
 ### Firewall / NAT Port Forwarding Rules
 **External IP:** `158.140.242.211`
@@ -60,16 +65,19 @@
 **Note:** These port mappings are **network-agnostic** (work for both Hoodi testnet and Ethereum mainnet). No changes required during migration - the P2P protocols use the same ports regardless of network.
 
 ## Migration Transaction Log
-- Wallet Init (node001): [[TODO date / tx hash]]
-- Set Withdrawal Address: [[TODO]]
-- Initialize Fee Distributor: [[TODO]]
-- Join Smoothing Pool: [[TODO]]
-- MEV-Boost Verification Snapshot: [[TODO]]
+- Wallet Init (node001): 2026-01-15
+- Node Registration: 2026-01-15 (timezone: Etc/UTC)
+- Set Withdrawal Address: 2026-01-15 (confirmed via WalletConnect/Tangem)
+- Initialize Fee Distributor: Auto-initialized during registration
+- Join Smoothing Pool: 2026-01-15
+- MEV-Boost Verification: 2026-01-15 (3 relays active)
+- **Minipool Creation:** Pending Saturn 1 launch (~Feb 2026)
 
 ## Validator & Minipool Targets
-- Initial LEB8 Count: [[TODO]]
-- Planned Scale-Up: [[TODO]]
-- Beaconcha.in Watchlist IDs: [[TODO]]
+- **Strategy:** Wait for Saturn 1 (LEB4 megapools) - see [saturn1-analysis.md](saturn1-analysis.md)
+- Initial Deployment: 14× LEB4 validators (56 ETH bonded)
+- Expected Launch: ~Feb 2026 (Saturn 1)
+- Beaconcha.in Watchlist IDs: (pending validator creation)
 
 ## Monitoring & Alerts
 - Grafana URL: [[TODO]]
@@ -79,5 +87,7 @@
 ## Change Log
 | Date | Change | Notes |
 | --- | --- | --- |
-| [[TODO]] | Created document | Derived from mainnet-migration-plan.md |
+| 2026-01-15 | Mainnet migration completed | Node registered, withdrawal address confirmed, smoothing pool joined |
+| 2026-01-15 | Awaiting Saturn 1 | Deposits paused; will create 14× LEB4 megapool validators |
+| 2026-01-10 | Created document | Derived from mainnet-migration-plan.md |
 

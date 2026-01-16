@@ -1,15 +1,19 @@
-# Operations Guide (Rocket Pool HA → Mainnet)
+# Operations Guide (Rocket Pool HA — Mainnet)
 
-> Target steady state: Ethereum mainnet, node001 primary (Reth + Lighthouse) with 7 LEB8 validators; node002 standby (Nethermind + Lighthouse) ready for failover.
-> Current status: Hoodi testnet (check [node001-config.txt](node001-config.txt) / [node002-config.txt](node002-config.txt) for active/standby) pending migration; follow [mainnet-migration-plan.md](mainnet-migration-plan.md) for cutover.
-> Smartnode: check current versions in [node001-config.txt](node001-config.txt) / [node002-config.txt](node002-config.txt); keep both nodes matched.
-> Wallets: **Destroy Hoodi node wallets during migration and create new mainnet node wallets per [docs](https://docs.rocketpool.net/guides/testnet/mainnet)**. Use Tangem as the cold **withdrawal address**, not as the node wallet.
+> **Network:** Ethereum Mainnet
+> **Target steady state:** node001 primary (Reth + Lighthouse) with 14 LEB4 validators (Saturn 1 megapool); node002 standby (Nethermind + Lighthouse) ready for failover.
+> **Current status:** Mainnet — node registered, smoothing pool joined, awaiting Saturn 1 launch (~Feb 2026) to create validators. See [saturn1-analysis.md](saturn1-analysis.md) for deployment strategy.
+> **Node wallet:** `0x0A77C4B4EE9Ab193514b9d8bEe25d7eF09f4917F` (node001)
+> **Withdrawal address:** `0x803b07DE402Ad93BB4315C0B4D38195e56bf8E7d` (Tangem cold wallet)
+> **Smartnode:** Check current versions in [node001-config.txt](node001-config.txt) / [node002-config.txt](node002-config.txt); keep both nodes matched.
 
 ## Runbooks & References
 - Failover/failback: see [node-failover-runbook.md](node-failover-runbook.md)
 - Config snapshots: [node001-config.txt](node001-config.txt), [node002-config.txt](node002-config.txt)
 - Backup workflows: [backup-playbook.md](backup-playbook.md)
 - Task backlog: [operational-tasks.md](operational-tasks.md)
+- Saturn 1 deployment analysis: [saturn1-analysis.md](saturn1-analysis.md)
+- Command reference: [commands.md](commands.md)
 
 ## Daily / Pre-flight (active node = check node00{1,2}-config.txt)
  - Health: `rocketpool node sync` (expect primary/fallback EC/CC synced and checkpoint URL configured).

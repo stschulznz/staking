@@ -1,0 +1,3726 @@
+{
+  "table_of_contents": [
+    {
+      "title": "RocketPool\nSecurity Review",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          55.29296875,
+          462.11328125
+        ],
+        [
+          257.7908630371094,
+          462.11328125
+        ],
+        [
+          257.7908630371094,
+          531.9654846191406
+        ],
+        [
+          55.29296875,
+          531.9654846191406
+        ]
+      ]
+    },
+    {
+      "title": "Contents",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          56.166015625,
+          55.5029296875
+        ],
+        [
+          121.60955047607422,
+          55.5029296875
+        ],
+        [
+          121.60955047607422,
+          70.6351318359375
+        ],
+        [
+          56.166015625,
+          70.6351318359375
+        ]
+      ]
+    },
+    {
+      "title": "1 Introduction",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          55.875,
+          55.5029296875
+        ],
+        [
+          169.36807250976562,
+          55.5029296875
+        ],
+        [
+          169.36807250976562,
+          71.14605712890625
+        ],
+        [
+          55.875,
+          71.14605712890625
+        ]
+      ]
+    },
+    {
+      "title": "1.1 About Cantina",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          56.166015625,
+          83.048828125
+        ],
+        [
+          171.2710418701172,
+          83.048828125
+        ],
+        [
+          171.2710418701172,
+          96.7822265625
+        ],
+        [
+          56.166015625,
+          96.7822265625
+        ]
+      ]
+    },
+    {
+      "title": "1.2 Disclaimer",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          56.166015625,
+          145.9521484375
+        ],
+        [
+          148.708984375,
+          145.9521484375
+        ],
+        [
+          148.708984375,
+          159.9652099609375
+        ],
+        [
+          56.166015625,
+          159.9652099609375
+        ]
+      ]
+    },
+    {
+      "title": "1.3 Risk assessment",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          55.29296875,
+          293.1376953125
+        ],
+        [
+          183.19033813476562,
+          293.1376953125
+        ],
+        [
+          183.19033813476562,
+          306.834228515625
+        ],
+        [
+          55.29296875,
+          306.834228515625
+        ]
+      ]
+    },
+    {
+      "title": "1.3.1 Severity Classification",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          54.419921875,
+          387.6982421875
+        ],
+        [
+          198.54098510742188,
+          387.6982421875
+        ],
+        [
+          198.54098510742188,
+          398.3876953125
+        ],
+        [
+          54.419921875,
+          398.3876953125
+        ]
+      ]
+    },
+    {
+      "title": "2 Security Review Summary",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          55.875,
+          55.091796875
+        ],
+        [
+          265.40625,
+          55.091796875
+        ],
+        [
+          265.40625,
+          71.14605712890625
+        ],
+        [
+          55.875,
+          71.14605712890625
+        ]
+      ]
+    },
+    {
+      "title": "Issues Found",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          263.369140625,
+          151.296875
+        ],
+        [
+          328.4073791503906,
+          151.296875
+        ],
+        [
+          328.4073791503906,
+          162.98504638671875
+        ],
+        [
+          263.369140625,
+          162.98504638671875
+        ]
+      ]
+    },
+    {
+      "title": "2.1 Scope",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          55.583984375,
+          306.705078125
+        ],
+        [
+          120.402099609375,
+          306.705078125
+        ],
+        [
+          120.402099609375,
+          320.2552490234375
+        ],
+        [
+          55.583984375,
+          320.2552490234375
+        ]
+      ]
+    },
+    {
+      "title": "3 Findings",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          56.166015625,
+          55.091796875
+        ],
+        [
+          138.9684600830078,
+          55.091796875
+        ],
+        [
+          138.9684600830078,
+          71.14605712890625
+        ],
+        [
+          56.166015625,
+          71.14605712890625
+        ]
+      ]
+    },
+    {
+      "title": "3.1 Critical Risk",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          56.45703125,
+          83.4599609375
+        ],
+        [
+          156.56640625,
+          83.4599609375
+        ],
+        [
+          156.56640625,
+          96.7822265625
+        ],
+        [
+          56.45703125,
+          96.7822265625
+        ]
+      ]
+    },
+    {
+      "title": "3.1.1 Malicious node operators can add validators with reused pubkeys to drain user capital",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          54.7109375,
+          105.25
+        ],
+        [
+          518.7603759765625,
+          105.25
+        ],
+        [
+          518.7603759765625,
+          116.25701904296875
+        ],
+        [
+          54.7109375,
+          116.25701904296875
+        ]
+      ]
+    },
+    {
+      "title": "3.1.2 Linked list data structure in LinkedListStorage can be corrupted",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          55.875,
+          567.7744140625
+        ],
+        [
+          419.348388671875,
+          567.7744140625
+        ],
+        [
+          419.348388671875,
+          578.7720031738281
+        ],
+        [
+          55.875,
+          578.7720031738281
+        ]
+      ]
+    },
+    {
+      "title": "3.2 High Risk",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          56.692996978759766,
+          355.6550598144531
+        ],
+        [
+          141.0606231689453,
+          355.6550598144531
+        ],
+        [
+          141.0606231689453,
+          367.6102294921875
+        ],
+        [
+          56.692996978759766,
+          367.6102294921875
+        ]
+      ]
+    },
+    {
+      "title": "3.2.1 Implementation of EIP-7782 changing assumed block time of 12 seconds will cause protocol-\nwide issues",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          54.7109375,
+          376.1865234375
+        ],
+        [
+          541.2890625,
+          376.1865234375
+        ],
+        [
+          541.2890625,
+          399.0400390625
+        ],
+        [
+          54.7109375,
+          399.0400390625
+        ]
+      ]
+    },
+    {
+      "title": "3.2.2 Incorrect/repeated withdrawal from rocketSmoothingPool in executeRewardSnapshot()\nwill lead to loss of ETH rewards",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          54.7109375,
+          555.8358459472656
+        ],
+        [
+          537.5657348632812,
+          555.8358459472656
+        ],
+        [
+          537.5657348632812,
+          577.8440246582031
+        ],
+        [
+          54.7109375,
+          577.8440246582031
+        ]
+      ]
+    },
+    {
+      "title": "3.2.3 Missing contracts from the RocketUpgradeOneDotFour upgrade contract",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          55.875,
+          518.4384765625
+        ],
+        [
+          451.65625,
+          518.4384765625
+        ],
+        [
+          451.65625,
+          529.4840393066406
+        ],
+        [
+          55.875,
+          529.4840393066406
+        ]
+      ]
+    },
+    {
+      "title": "3.2.4 Allowing extra upper bits for indexes allows invalid proofs to pass in BeaconStateVerifier",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          55.875,
+          87.16015625
+        ],
+        [
+          537.796875,
+          87.16015625
+        ],
+        [
+          537.796875,
+          98.4400634765625
+        ],
+        [
+          55.875,
+          98.4400634765625
+        ]
+      ]
+    },
+    {
+      "title": "3.3 Medium Risk",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          56.166015625,
+          646.30078125
+        ],
+        [
+          162.77120971679688,
+          646.30078125
+        ],
+        [
+          162.77120971679688,
+          658.7842407226562
+        ],
+        [
+          56.166015625,
+          658.7842407226562
+        ]
+      ]
+    },
+    {
+      "title": "3.3.1 Missing lower guardrail for reduced.bond may allow validators to stake with lower bond\nthan expected",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          54.7109375,
+          666.4462890625
+        ],
+        [
+          538.9609375,
+          666.4462890625
+        ],
+        [
+          538.9609375,
+          690.2140197753906
+        ],
+        [
+          54.7109375,
+          690.2140197753906
+        ]
+      ]
+    },
+    {
+      "title": "3.3.2 Missing guardrails for upgradeveto.quorum and upgrade.delay can affect protocol up-\ngrades",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          54.7109375,
+          391.8095703125
+        ],
+        [
+          541.2890625,
+          391.8095703125
+        ],
+        [
+          541.2890625,
+          414.1199951171875
+        ],
+        [
+          54.7109375,
+          414.1199951171875
+        ]
+      ]
+    },
+    {
+      "title": "3.3.3 Node Operator can perpetually lock a third-party depositor funds",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          55.875,
+          195.2880859375
+        ],
+        [
+          414.4414978027344,
+          195.2880859375
+        ],
+        [
+          414.4414978027344,
+          206.03607177734375
+        ],
+        [
+          55.875,
+          206.03607177734375
+        ]
+      ]
+    },
+    {
+      "title": "3.3.4 Mix-up between list and vector types in the SSZ library",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          56.692996978759766,
+          620.3994140625
+        ],
+        [
+          362.40087890625,
+          620.3994140625
+        ],
+        [
+          362.40087890625,
+          631.8590393066406
+        ],
+        [
+          56.692996978759766,
+          631.8590393066406
+        ]
+      ]
+    },
+    {
+      "title": "3.4 Low Risk",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          56.166015625,
+          458.3360595703125
+        ],
+        [
+          138.232421875,
+          458.3360595703125
+        ],
+        [
+          138.232421875,
+          470.2912292480469
+        ],
+        [
+          56.166015625,
+          470.2912292480469
+        ]
+      ]
+    },
+    {
+      "title": "3.4.1 Use of incorrect/repeated ABIs will lead to integration errors",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          54.7109375,
+          478.9697265625
+        ],
+        [
+          390.6407470703125,
+          478.9697265625
+        ],
+        [
+          390.6407470703125,
+          489.7650146484375
+        ],
+        [
+          54.7109375,
+          489.7650146484375
+        ]
+      ]
+    },
+    {
+      "title": "3.4.2 Missed exit challenges by oDAO will lead to loss of user capital",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          54.7109375,
+          696.0478515625
+        ],
+        [
+          399.2734375,
+          696.0478515625
+        ],
+        [
+          399.2734375,
+          706.373046875
+        ],
+        [
+          54.7109375,
+          706.373046875
+        ]
+      ]
+    },
+    {
+      "title": "3.4.3 Two compromised oDAO members could collude to temporarily prevent reward distributions",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          55.875,
+          223.2451171875
+        ],
+        [
+          538.39697265625,
+          223.2451171875
+        ],
+        [
+          538.39697265625,
+          235.92401123046875
+        ],
+        [
+          55.875,
+          235.92401123046875
+        ]
+      ]
+    },
+    {
+      "title": "3.4.4 challengeExit() allows less than intended challenges",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          55.875,
+          705.4918518066406
+        ],
+        [
+          365.515625,
+          705.4918518066406
+        ],
+        [
+          365.515625,
+          715.5450439453125
+        ],
+        [
+          55.875,
+          715.5450439453125
+        ]
+      ]
+    },
+    {
+      "title": "3.4.5 Megapool MEV theft penalties can be applied multiple times per block with different amounts",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          55.875,
+          187.4765625
+        ],
+        [
+          538.3775634765625,
+          187.4765625
+        ],
+        [
+          538.3775634765625,
+          198.4639892578125
+        ],
+        [
+          55.875,
+          198.4639892578125
+        ]
+      ]
+    },
+    {
+      "title": "3.4.6 Minipool MEV theft penalties will not be applied at 51% consensus threshold",
+      "heading_level": null,
+      "page_id": 17,
+      "polygon": [
+        [
+          55.875,
+          580.9306640625
+        ],
+        [
+          468.1401062011719,
+          580.9306640625
+        ],
+        [
+          468.1401062011719,
+          591.6120300292969
+        ],
+        [
+          55.875,
+          591.6120300292969
+        ]
+      ]
+    },
+    {
+      "title": "3.4.7 Missing forced distribution before changed capital ratio scenarios causes incorrect accrued\nstaking rewards distribution",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          55.875,
+          268.05859375
+        ],
+        [
+          538.3995971679688,
+          268.05859375
+        ],
+        [
+          538.3995971679688,
+          291.8170166015625
+        ],
+        [
+          55.875,
+          291.8170166015625
+        ]
+      ]
+    },
+    {
+      "title": "3.4.8 Allowing distribute() to be called before the first staked validator may cause inaccuracy\nin rewards distribution",
+      "heading_level": null,
+      "page_id": 18,
+      "polygon": [
+        [
+          56.692996978759766,
+          598.1988525390625
+        ],
+        [
+          538.9609375,
+          598.1988525390625
+        ],
+        [
+          538.9609375,
+          620.2080230712891
+        ],
+        [
+          56.692996978759766,
+          620.2080230712891
+        ]
+      ]
+    },
+    {
+      "title": "3.4.9 Missing upper guardrail on notify_threshold allows all exiting validators to be penalized",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          55.875,
+          123.33984375
+        ],
+        [
+          537.8191528320312,
+          123.33984375
+        ],
+        [
+          537.8191528320312,
+          134.3050537109375
+        ],
+        [
+          55.875,
+          134.3050537109375
+        ]
+      ]
+    },
+    {
+      "title": "3.4.10 Incorrect operator prevents the application of the maximum allowed late notification fine",
+      "heading_level": null,
+      "page_id": 19,
+      "polygon": [
+        [
+          55.875,
+          448.95703125
+        ],
+        [
+          540.125,
+          448.95703125
+        ],
+        [
+          540.125,
+          460.7030334472656
+        ],
+        [
+          55.875,
+          460.7030334472656
+        ]
+      ]
+    },
+    {
+      "title": "3.4.11 Missing conditional check for exit challenge creation deviates from RPIP-72 specification",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          53.546875,
+          58.380859375
+        ],
+        [
+          533.140625,
+          58.380859375
+        ],
+        [
+          533.140625,
+          69.156982421875
+        ],
+        [
+          53.546875,
+          69.156982421875
+        ]
+      ]
+    },
+    {
+      "title": "3.4.12 Missing lower guardrail on late.notify.fine allows exiting validators to never incur any\nlate notification fine",
+      "heading_level": null,
+      "page_id": 20,
+      "polygon": [
+        [
+          53.546875,
+          417.2998046875
+        ],
+        [
+          540.125,
+          417.2998046875
+        ],
+        [
+          540.125,
+          439.7950134277344
+        ],
+        [
+          53.546875,
+          439.7950134277344
+        ]
+      ]
+    },
+    {
+      "title": "3.4.13 Compromised oDAO can apply MEV theft penalty to arbitrary validators",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          54.7109375,
+          57.1474609375
+        ],
+        [
+          450.4921875,
+          57.1474609375
+        ],
+        [
+          450.4921875,
+          69.156982421875
+        ],
+        [
+          54.7109375,
+          69.156982421875
+        ]
+      ]
+    },
+    {
+      "title": "Recommendation: Consider:",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          55.875,
+          311.2275390625
+        ],
+        [
+          195.20474243164062,
+          311.2275390625
+        ],
+        [
+          195.20474243164062,
+          322.235107421875
+        ],
+        [
+          55.875,
+          322.235107421875
+        ]
+      ]
+    },
+    {
+      "title": "3.4.14 Missing upper guardrail on maximum.megapool.eth.penalty allows validators to be arbi-\ntrarily penalized for MEV theft",
+      "heading_level": null,
+      "page_id": 21,
+      "polygon": [
+        [
+          55.875,
+          495.00390625
+        ],
+        [
+          540.125,
+          495.00390625
+        ],
+        [
+          540.125,
+          518.8900146484375
+        ],
+        [
+          55.875,
+          518.8900146484375
+        ]
+      ]
+    },
+    {
+      "title": "3.4.15 Outdated implementation of >= 2 days lower guardrail for\nmegapool.time.before.dissolve deviates from specification",
+      "heading_level": null,
+      "page_id": 22,
+      "polygon": [
+        [
+          55.875,
+          56.3251953125
+        ],
+        [
+          538.7672119140625,
+          56.3251953125
+        ],
+        [
+          538.7672119140625,
+          81.112060546875
+        ],
+        [
+          55.875,
+          81.112060546875
+        ]
+      ]
+    },
+    {
+      "title": "3.4.16 Outdated rationale for minipool.maximum.penalty.count may allow oDAO to dispropor-\ntionately penalize untransitioned minipools",
+      "heading_level": null,
+      "page_id": 22,
+      "polygon": [
+        [
+          55.875,
+          333.83984375
+        ],
+        [
+          540.125,
+          333.83984375
+        ],
+        [
+          540.125,
+          357.4950256347656
+        ],
+        [
+          55.875,
+          357.4950256347656
+        ]
+      ]
+    },
+    {
+      "title": "However:",
+      "heading_level": null,
+      "page_id": 22,
+      "polygon": [
+        [
+          55.875,
+          528.3056640625
+        ],
+        [
+          100.67805480957031,
+          528.3056640625
+        ],
+        [
+          100.67805480957031,
+          539.9640502929688
+        ],
+        [
+          55.875,
+          539.9640502929688
+        ]
+      ]
+    },
+    {
+      "title": "3.4.17 Missing upper guardrail on minipool.maximum.penalty.count allows validators to be\narbitrarily penalized for MEV theft",
+      "heading_level": null,
+      "page_id": 22,
+      "polygon": [
+        [
+          55.875,
+          725.6494140625
+        ],
+        [
+          538.52734375,
+          725.6494140625
+        ],
+        [
+          538.52734375,
+          748.5740280151367
+        ],
+        [
+          55.875,
+          748.5740280151367
+        ]
+      ]
+    },
+    {
+      "title": "3.4.18 Missing guardrails for network.reth.collateral.target may affect redemptions and\nstaking",
+      "heading_level": null,
+      "page_id": 23,
+      "polygon": [
+        [
+          55.875,
+          242.1572265625
+        ],
+        [
+          538.4764404296875,
+          242.1572265625
+        ],
+        [
+          538.4764404296875,
+          265.81207275390625
+        ],
+        [
+          55.875,
+          265.81207275390625
+        ]
+      ]
+    },
+    {
+      "title": "3.4.19 Missing upper guardrail for network.submit.balances.frequency may prevent timely\nnetwork balance updates",
+      "heading_level": null,
+      "page_id": 23,
+      "polygon": [
+        [
+          55.875,
+          590.7978515625
+        ],
+        [
+          538.7767333984375,
+          590.7978515625
+        ],
+        [
+          538.7767333984375,
+          613.9260406494141
+        ],
+        [
+          55.875,
+          613.9260406494141
+        ]
+      ]
+    },
+    {
+      "title": "3.4.20 RPL price update frequency is never enforced on oDAO",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          55.875,
+          178.8427734375
+        ],
+        [
+          366.4812927246094,
+          178.8427734375
+        ],
+        [
+          366.4812927246094,
+          190.2969970703125
+        ],
+        [
+          55.875,
+          190.2969970703125
+        ]
+      ]
+    },
+    {
+      "title": "3.4.21 Missing guardrails for node.unstaking.period can cause unexpected withdrawal behav-\niors",
+      "heading_level": null,
+      "page_id": 24,
+      "polygon": [
+        [
+          55.875,
+          437.0341796875
+        ],
+        [
+          540.125,
+          437.0341796875
+        ],
+        [
+          540.125,
+          460.7030334472656
+        ],
+        [
+          55.875,
+          460.7030334472656
+        ]
+      ]
+    },
+    {
+      "title": "3.4.22 Missing upper guardrail for node.voting.power.stake.maximum allows bypass of RPL\nclamping to increase voting power",
+      "heading_level": null,
+      "page_id": 25,
+      "polygon": [
+        [
+          54.7109375,
+          57.1474609375
+        ],
+        [
+          538.9609375,
+          57.1474609375
+        ],
+        [
+          538.9609375,
+          81.112060546875
+        ],
+        [
+          54.7109375,
+          81.112060546875
+        ]
+      ]
+    },
+    {
+      "title": "3.4.23 Security Council proposals will pass at 50% member quorum threshold",
+      "heading_level": null,
+      "page_id": 25,
+      "polygon": [
+        [
+          54.7109375,
+          436.2119140625
+        ],
+        [
+          445.8359375,
+          436.2119140625
+        ],
+        [
+          445.8359375,
+          446.7650146484375
+        ],
+        [
+          54.7109375,
+          446.7650146484375
+        ]
+      ]
+    },
+    {
+      "title": "3.4.24 A single compromised Security Council member can veto an upgrade proposal",
+      "heading_level": null,
+      "page_id": 25,
+      "polygon": [
+        [
+          55.875,
+          695.63671875
+        ],
+        [
+          481.921875,
+          695.63671875
+        ],
+        [
+          481.921875,
+          706.613037109375
+        ],
+        [
+          55.875,
+          706.613037109375
+        ]
+      ]
+    },
+    {
+      "title": "Recommendation: Consider:",
+      "heading_level": null,
+      "page_id": 26,
+      "polygon": [
+        [
+          55.29296875,
+          136.0849609375
+        ],
+        [
+          195.20474243164062,
+          136.0849609375
+        ],
+        [
+          195.20474243164062,
+          146.86505126953125
+        ],
+        [
+          55.29296875,
+          146.86505126953125
+        ]
+      ]
+    },
+    {
+      "title": "3.4.25 Upgrade delay of 7 days may be insufficient given the current validator exit queue wait\ntimes",
+      "heading_level": null,
+      "page_id": 26,
+      "polygon": [
+        [
+          55.875,
+          333.017578125
+        ],
+        [
+          538.294921875,
+          333.017578125
+        ],
+        [
+          538.294921875,
+          355.47601318359375
+        ],
+        [
+          55.875,
+          355.47601318359375
+        ]
+      ]
+    },
+    {
+      "title": "3.4.26 Setting network.submit.prices.enabled is incorrectly implemented as SC changeable\nparameter without delay",
+      "heading_level": null,
+      "page_id": 26,
+      "polygon": [
+        [
+          56.692996978759766,
+          633.14453125
+        ],
+        [
+          538.9609375,
+          633.14453125
+        ],
+        [
+          538.9609375,
+          656.16796875
+        ],
+        [
+          56.692996978759766,
+          656.16796875
+        ]
+      ]
+    },
+    {
+      "title": "3.4.27 Missing guardrails for members.rplbond allows current members to manipulate oDAO",
+      "heading_level": null,
+      "page_id": 27,
+      "polygon": [
+        [
+          55.875,
+          165.6865234375
+        ],
+        [
+          523.828125,
+          165.6865234375
+        ],
+        [
+          523.828125,
+          176.3759765625
+        ],
+        [
+          55.875,
+          176.3759765625
+        ]
+      ]
+    },
+    {
+      "title": "3.4.28 Missing guardrails for oDAO challenge times may make the challenge process ineffective",
+      "heading_level": null,
+      "page_id": 27,
+      "polygon": [
+        [
+          54.7109375,
+          416.4775390625
+        ],
+        [
+          534.8001098632812,
+          416.4775390625
+        ],
+        [
+          534.8001098632812,
+          428.6210021972656
+        ],
+        [
+          54.7109375,
+          428.6210021972656
+        ]
+      ]
+    },
+    {
+      "title": "3.4.29 Missing guardrails on members.challenge.cost allow members to prevent non-member\nchallenges or allow spamming",
+      "heading_level": null,
+      "page_id": 27,
+      "polygon": [
+        [
+          54.7109375,
+          699.3369140625
+        ],
+        [
+          538.9609375,
+          699.3369140625
+        ],
+        [
+          538.9609375,
+          722.9380340576172
+        ],
+        [
+          54.7109375,
+          722.9380340576172
+        ]
+      ]
+    },
+    {
+      "title": "3.4.30 Missing guardrails on oDAO voting settings can make the proposal voting process ineffective",
+      "heading_level": null,
+      "page_id": 28,
+      "polygon": [
+        [
+          55.875,
+          266.0029296875
+        ],
+        [
+          538.4299926757812,
+          266.0029296875
+        ],
+        [
+          538.4299926757812,
+          277.76702880859375
+        ],
+        [
+          55.875,
+          277.76702880859375
+        ]
+      ]
+    },
+    {
+      "title": "3.4.31 Missing check allows challenged members to refute beyond the challenge window",
+      "heading_level": null,
+      "page_id": 28,
+      "polygon": [
+        [
+          55.875,
+          607.2431640625
+        ],
+        [
+          501.9532165527344,
+          607.2431640625
+        ],
+        [
+          501.9532165527344,
+          618.113037109375
+        ],
+        [
+          55.875,
+          618.113037109375
+        ]
+      ]
+    },
+    {
+      "title": "3.4.32 Missing check allows a challenge proposer to also later remove the challenged member",
+      "heading_level": null,
+      "page_id": 29,
+      "polygon": [
+        [
+          55.875,
+          367.9638671875
+        ],
+        [
+          528.484375,
+          367.9638671875
+        ],
+        [
+          528.484375,
+          378.8550109863281
+        ],
+        [
+          55.875,
+          378.8550109863281
+        ]
+      ]
+    },
+    {
+      "title": "3.4.33 getQueueTop() returns an incorrect validator",
+      "heading_level": null,
+      "page_id": 30,
+      "polygon": [
+        [
+          55.875,
+          158.697265625
+        ],
+        [
+          323.9022521972656,
+          158.697265625
+        ],
+        [
+          323.9022521972656,
+          170.1710205078125
+        ],
+        [
+          55.875,
+          170.1710205078125
+        ]
+      ]
+    },
+    {
+      "title": "3.4.34 Missing upper guardrail for megapool.time.before.dissolve can prevent validators from\nbeing dissolved",
+      "heading_level": null,
+      "page_id": 30,
+      "polygon": [
+        [
+          55.875,
+          489.0118713378906
+        ],
+        [
+          538.6942138671875,
+          489.0118713378906
+        ],
+        [
+          538.6942138671875,
+          511.02001953125
+        ],
+        [
+          55.875,
+          511.02001953125
+        ]
+      ]
+    },
+    {
+      "title": "3.4.35 Unchecked state transition may lead to unexpected behavior in setUseLatestDelegate()",
+      "heading_level": null,
+      "page_id": 30,
+      "polygon": [
+        [
+          54.7109375,
+          711.5968780517578
+        ],
+        [
+          537.5657958984375,
+          711.5968780517578
+        ],
+        [
+          537.5657958984375,
+          721.6500396728516
+        ],
+        [
+          54.7109375,
+          721.6500396728516
+        ]
+      ]
+    },
+    {
+      "title": "3.4.36 Missing sanity check for _stakingEth <= _totalEth could cause unexpected behavior",
+      "heading_level": null,
+      "page_id": 31,
+      "polygon": [
+        [
+          55.875,
+          331.7841796875
+        ],
+        [
+          528.484375,
+          331.7841796875
+        ],
+        [
+          528.484375,
+          343.5210266113281
+        ],
+        [
+          55.875,
+          343.5210266113281
+        ]
+      ]
+    },
+    {
+      "title": "3.4.37 Allowing pDAO to control voter share of revenue is risky",
+      "heading_level": null,
+      "page_id": 31,
+      "polygon": [
+        [
+          55.875,
+          518.4384765625
+        ],
+        [
+          373.7441101074219,
+          518.4384765625
+        ],
+        [
+          373.7441101074219,
+          530.2400207519531
+        ],
+        [
+          55.875,
+          530.2400207519531
+        ]
+      ]
+    },
+    {
+      "title": "3.4.38 Nodes can withdraw ETH or credits even if they have outstanding protocol debt",
+      "heading_level": null,
+      "page_id": 32,
+      "polygon": [
+        [
+          55.875,
+          105.25
+        ],
+        [
+          489.1014099121094,
+          105.25
+        ],
+        [
+          489.1014099121094,
+          115.57305908203125
+        ],
+        [
+          55.875,
+          115.57305908203125
+        ]
+      ]
+    },
+    {
+      "title": "3.4.39 Missed deletion of pending withdrawal address allows a potentially untrusted one to set\nitself as withdrawal address",
+      "heading_level": null,
+      "page_id": 32,
+      "polygon": [
+        [
+          55.875,
+          515.9716796875
+        ],
+        [
+          538.3368530273438,
+          515.9716796875
+        ],
+        [
+          538.3368530273438,
+          540.5970153808594
+        ],
+        [
+          55.875,
+          540.5970153808594
+        ]
+      ]
+    },
+    {
+      "title": "Scenario of concern:",
+      "heading_level": null,
+      "page_id": 32,
+      "polygon": [
+        [
+          55.875,
+          676.1163940429688
+        ],
+        [
+          151.2982177734375,
+          676.1163940429688
+        ],
+        [
+          151.2982177734375,
+          686.0790405273438
+        ],
+        [
+          55.875,
+          686.0790405273438
+        ]
+      ]
+    },
+    {
+      "title": "3.4.40 Incorrect uint64 casts in RocketDepositPool.getQueueTop()",
+      "heading_level": null,
+      "page_id": 33,
+      "polygon": [
+        [
+          54.7109375,
+          148.0078125
+        ],
+        [
+          406.2578125,
+          148.0078125
+        ],
+        [
+          406.2578125,
+          158.215087890625
+        ],
+        [
+          54.7109375,
+          158.215087890625
+        ]
+      ]
+    },
+    {
+      "title": "3.4.41 Missing onlyThisLatestContract modifier for functions in RocketDepositPool",
+      "heading_level": null,
+      "page_id": 33,
+      "polygon": [
+        [
+          55.875,
+          452.6572265625
+        ],
+        [
+          493.89990234375,
+          452.6572265625
+        ],
+        [
+          493.89990234375,
+          464.5150146484375
+        ],
+        [
+          55.875,
+          464.5150146484375
+        ]
+      ]
+    },
+    {
+      "title": "3.4.42 Improvements for BeaconStateVerifier and the SSZ library",
+      "heading_level": null,
+      "page_id": 34,
+      "polygon": [
+        [
+          55.875,
+          57.1474609375
+        ],
+        [
+          400.4375,
+          57.1474609375
+        ],
+        [
+          400.4375,
+          69.156982421875
+        ],
+        [
+          55.875,
+          69.156982421875
+        ]
+      ]
+    },
+    {
+      "title": "3.5 Gas Optimization",
+      "heading_level": null,
+      "page_id": 34,
+      "polygon": [
+        [
+          55.583984375,
+          481.84765625
+        ],
+        [
+          189.00086975097656,
+          481.84765625
+        ],
+        [
+          189.00086975097656,
+          494.6632080078125
+        ],
+        [
+          55.583984375,
+          494.6632080078125
+        ]
+      ]
+    },
+    {
+      "title": "3.5.1 Gas optimizations",
+      "heading_level": null,
+      "page_id": 34,
+      "polygon": [
+        [
+          56.166015625,
+          501.9931640625
+        ],
+        [
+          178.974609375,
+          501.9931640625
+        ],
+        [
+          178.974609375,
+          514.1380310058594
+        ],
+        [
+          56.166015625,
+          514.1380310058594
+        ]
+      ]
+    },
+    {
+      "title": "3.6 Informational",
+      "heading_level": null,
+      "page_id": 35,
+      "polygon": [
+        [
+          56.166015625,
+          123.7509765625
+        ],
+        [
+          168.85641479492188,
+          123.7509765625
+        ],
+        [
+          168.85641479492188,
+          136.7762451171875
+        ],
+        [
+          56.166015625,
+          136.7762451171875
+        ]
+      ]
+    },
+    {
+      "title": "3.6.1 RocketMegapoolManager functions can make arbitrary external calls",
+      "heading_level": null,
+      "page_id": 35,
+      "polygon": [
+        [
+          56.692996978759766,
+          145.1298828125
+        ],
+        [
+          431.8671875,
+          145.1298828125
+        ],
+        [
+          431.8671875,
+          156.2501220703125
+        ],
+        [
+          56.692996978759766,
+          156.2501220703125
+        ]
+      ]
+    },
+    {
+      "title": "3.6.2 Hardcoding consensus threshold for Megapool penalty enforcement prevents any required\nmodification",
+      "heading_level": null,
+      "page_id": 35,
+      "polygon": [
+        [
+          54.7109375,
+          373.30859375
+        ],
+        [
+          538.9609375,
+          373.30859375
+        ],
+        [
+          538.9609375,
+          396.7680358886719
+        ],
+        [
+          54.7109375,
+          396.7680358886719
+        ]
+      ]
+    },
+    {
+      "title": "3.6.3 Specification of lower guardrail for Megapool MEV theft penalty is contradicting",
+      "heading_level": null,
+      "page_id": 35,
+      "polygon": [
+        [
+          55.875,
+          712.08203125
+        ],
+        [
+          486.578125,
+          712.08203125
+        ],
+        [
+          486.578125,
+          725.5600357055664
+        ],
+        [
+          55.875,
+          725.5600357055664
+        ]
+      ]
+    },
+    {
+      "title": "3.6.4 Avoid hardcoding the gas amount passed to the sha256 precompile",
+      "heading_level": null,
+      "page_id": 36,
+      "polygon": [
+        [
+          55.875,
+          229.8232421875
+        ],
+        [
+          421.7540283203125,
+          229.8232421875
+        ],
+        [
+          421.7540283203125,
+          241.90203857421875
+        ],
+        [
+          55.875,
+          241.90203857421875
+        ]
+      ]
+    },
+    {
+      "title": "3.6.5 Unused code reduces readability",
+      "heading_level": null,
+      "page_id": 36,
+      "polygon": [
+        [
+          56.692996978759766,
+          541.4619140625
+        ],
+        [
+          252.6015625,
+          541.4619140625
+        ],
+        [
+          252.6015625,
+          551.6980285644531
+        ],
+        [
+          56.692996978759766,
+          551.6980285644531
+        ]
+      ]
+    },
+    {
+      "title": "3.6.6 Excess caller privileges provided in function access control is risky",
+      "heading_level": null,
+      "page_id": 37,
+      "polygon": [
+        [
+          56.692996978759766,
+          135.2626953125
+        ],
+        [
+          417.8984375,
+          135.2626953125
+        ],
+        [
+          417.8984375,
+          146.26007080078125
+        ],
+        [
+          56.692996978759766,
+          146.26007080078125
+        ]
+      ]
+    },
+    {
+      "title": "Examples are:",
+      "heading_level": null,
+      "page_id": 37,
+      "polygon": [
+        [
+          56.166015625,
+          292.3154296875
+        ],
+        [
+          121.61952209472656,
+          292.3154296875
+        ],
+        [
+          121.61952209472656,
+          303.697021484375
+        ],
+        [
+          56.166015625,
+          303.697021484375
+        ]
+      ]
+    },
+    {
+      "title": "3.6.7 Missing sanity checks could cause unexpected behavior",
+      "heading_level": null,
+      "page_id": 38,
+      "polygon": [
+        [
+          55.875,
+          57.55859375
+        ],
+        [
+          365.515625,
+          57.55859375
+        ],
+        [
+          365.515625,
+          69.156982421875
+        ],
+        [
+          55.875,
+          69.156982421875
+        ]
+      ]
+    },
+    {
+      "title": "3.6.8 Use of pragma abicoder v2 is unnecessary",
+      "heading_level": null,
+      "page_id": 38,
+      "polygon": [
+        [
+          56.45703125,
+          732.2275390625
+        ],
+        [
+          306.73046875,
+          732.2275390625
+        ],
+        [
+          306.73046875,
+          742.7590408325195
+        ],
+        [
+          56.45703125,
+          742.7590408325195
+        ]
+      ]
+    },
+    {
+      "title": "3.6.9 Not using leading underscore for private/internal function names reduces readability",
+      "heading_level": null,
+      "page_id": 39,
+      "polygon": [
+        [
+          54.7109375,
+          195.2880859375
+        ],
+        [
+          513.7489624023438,
+          195.2880859375
+        ],
+        [
+          513.7489624023438,
+          206.03607177734375
+        ],
+        [
+          54.7109375,
+          206.03607177734375
+        ]
+      ]
+    },
+    {
+      "title": "3.6.10 Resetting validator.expressUsed and validator.lastAssignmentTime will avoid stale\nvalues",
+      "heading_level": null,
+      "page_id": 39,
+      "polygon": [
+        [
+          54.7109375,
+          369.6083984375
+        ],
+        [
+          538.9609375,
+          369.6083984375
+        ],
+        [
+          538.9609375,
+          392.7560119628906
+        ],
+        [
+          54.7109375,
+          392.7560119628906
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          13
+        ],
+        [
+          "Line",
+          6
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          371
+        ],
+        [
+          "TableCell",
+          110
+        ],
+        [
+          "Line",
+          59
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "TableOfContents",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          344
+        ],
+        [
+          "TableCell",
+          208
+        ],
+        [
+          "Line",
+          52
+        ],
+        [
+          "TableOfContents",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          85
+        ],
+        [
+          "Line",
+          30
+        ],
+        [
+          "TableCell",
+          16
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "Reference",
+          5
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          427
+        ],
+        [
+          "Line",
+          53
+        ],
+        [
+          "TableCell",
+          32
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          469
+        ],
+        [
+          "TableCell",
+          124
+        ],
+        [
+          "Line",
+          62
+        ],
+        [
+          "Form",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          503
+        ],
+        [
+          "Line",
+          62
+        ],
+        [
+          "Figure",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          433
+        ],
+        [
+          "TableCell",
+          114
+        ],
+        [
+          "Line",
+          62
+        ],
+        [
+          "Form",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          226
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          15
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          305
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          226
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          12
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          212
+        ],
+        [
+          "Line",
+          42
+        ],
+        [
+          "Text",
+          17
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          346
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Code",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          215
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          16
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          239
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          15
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          294
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "Text",
+          21
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          159
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          21
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 17,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          225
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "Code",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 18,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          223
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          18
+        ],
+        [
+          "Code",
+          3
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 19,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          246
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "Text",
+          20
+        ],
+        [
+          "Code",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 20,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          240
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Text",
+          16
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 21,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          171
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          16
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 22,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          194
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Text",
+          17
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 23,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          199
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "Text",
+          16
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 24,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          185
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          18
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 25,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          229
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          19
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Code",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 26,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          192
+        ],
+        [
+          "Line",
+          50
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListItem",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 27,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          177
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          21
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 28,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          179
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "Text",
+          16
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 29,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          171
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 30,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          211
+        ],
+        [
+          "Line",
+          42
+        ],
+        [
+          "Text",
+          20
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Code",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 31,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          200
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Text",
+          17
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 32,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          219
+        ],
+        [
+          "Line",
+          51
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 33,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          270
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "Text",
+          17
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 34,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          306
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "ListItem",
+          10
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "Reference",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 35,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          211
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "Text",
+          20
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Reference",
+          4
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 36,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          187
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "Text",
+          15
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Code",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 37,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          220
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          16
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ],
+        [
+          "Reference",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 38,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          198
+        ],
+        [
+          "Line",
+          42
+        ],
+        [
+          "Text",
+          14
+        ],
+        [
+          "Code",
+          6
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 39,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          143
+        ],
+        [
+          "Line",
+          29
+        ],
+        [
+          "Text",
+          17
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Reference",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/cantina-audit-saturn-1"
+}
