@@ -221,6 +221,23 @@ rocketpool node rewards
 rocketpool node claim-rewards
 ```
 
+### Sending ETH/Tokens
+```bash
+# Check node wallet balance first
+rocketpool node status
+
+# Send specific amount of ETH
+rocketpool node send 1.5 eth 0xDestinationAddress
+
+# Send RPL tokens
+rocketpool node send 100 rpl 0xDestinationAddress
+
+# Send rETH tokens
+rocketpool node send 5 reth 0xDestinationAddress
+```
+
+> **Note:** Keep at least 0.05-0.1 ETH in your node wallet for gas fees (claiming rewards, voting, etc.)
+
 ---
 
 ## Docker Commands
